@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Profile from './profile/Profile';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NaveBar from './components/NaveBar';
 
 function App() {
+  const profileElements =
+  {
+    fullName:"MOFFO LONLA CEDRIC",
+    bio:"I falled in love with software development and I'm ready to tackle new challenges",
+    profession:"Software Engineer",
+    imgSrc:"/my_profile_pic.jpeg",
+    handleName:()=>{alert(`${profileElements.fullName}`)},
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <NaveBar login={profileElements.fullName}/>
+      <h1>Welcome</h1>
+      <Profile data={profileElements} handleName={profileElements.handleName}><img src={profileElements.imgSrc} alt="Profile pic"/></Profile>
+    </div >
   );
 }
 
